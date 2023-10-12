@@ -2,7 +2,7 @@
 
 Points: 4
 
-Nmap scan shows that most ports in range 60000-60495 are open. Visiting some of them show that there's a code that renders a smiley face which changes about every second.
+Nmap scan shows that many of the ports in range 60000-60495 are open. Visiting some of them shows that there's a code that renders a smiley face which changes about every second.
 
 Let's sample them:
 `for port in {60000..60495}; do echo "$port"; curl http://keyword-of-the-day.cns-jv.tcc:$port 2>/dev/null > "r_$port"; done`
