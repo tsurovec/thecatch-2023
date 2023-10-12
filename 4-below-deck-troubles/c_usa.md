@@ -7,7 +7,7 @@ Root serves just `{"msg":"Naval ship API version 1.0"}` JSON, we'll have to disc
 
 `ffuf -u http://universal-ship-api.cns-jv.tcc/FUZZ -w /usr/share/wordlists/dirb/common.txt`
 
-discover paths `/api` and `/docs`. Visiting `/api` will provide `/api/v1/user` and `/api/v1/admin` paths. Unfortunately `/docs` need authenticated access so we'll have to keep searching.
+discovers paths `/api` and `/docs`. Visiting `/api` will provide `/api/v1/user` and `/api/v1/admin` paths. Unfortunately `/docs` need authenticated access so we'll have to keep searching.
 
 `/api/v1/user` paths return 401 for everything, but `/api/v1/admin` returns 404 so I continued with scanning that path,
 `ffuf -u http://universal-ship-api.cns-jv.tcc/api/v1/admin/FUZZ -w /usr/share/wordlists/dirb/common.txt`

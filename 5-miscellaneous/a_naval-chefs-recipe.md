@@ -7,3 +7,5 @@ The site uses a common setup when site on port 80 just redirects to a secure sit
 
 Visiting http://chef-menu.galley.cns-jv.tcc while persisting network request logs and inspecting the port 80 response quickly yields the flag.
 ![alt text](img/ingredient.png)
+
+`FLAG{ytZ6-Pewo-iZZP-Q9qz}`
