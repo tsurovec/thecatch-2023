@@ -12,4 +12,4 @@ I double checked the adjustments and then went for automated solution in Python 
 
 By then there was a new hint telling to use pytz library version 2020.4 appeared which indeed solved the issue: `FLAG{3YAG-2rbj-KWoZ-LwWm}`
 
-The problematic value was from America/Mazatlan which is GMT-7 as of 2023. Mexico abolished DST in 2022 and previously Mazatlan probably had GMT-8 on Oct 2.
+The problematic value was from America/Mazatlan which is GMT-7 as of 2023. Mexico abolished DST in 2022 and previously Mazatlan probably had GMT-6 on Oct 2.
