@@ -163,7 +163,7 @@ if __name__ == "__main__":
 ```
 
 
-yes, it's using `deps` so let's check that:
+yes, it's using `deps` to parse token so let's check that:
 
 
 `_fetch /app/shipapi/deps.py`
@@ -286,10 +286,11 @@ settings = Settings()
 
 ```
 
-and that gives location of the information needed to inject the key into JWT:
+which gives us location of the information needed to inject the key into JWT:
 
 
 `_fetch /app/shipapi/appconfig/jwtsigning.key > jwtsigning.key`
+
 `_fetch /app/shipapi/appconfig/jwtsigning.pub > jwtsigning.pub`
 
 these we can plug into the form and generate a JWT with `"flag-read": true` in payload and query the `getFlag` endpoint again:
