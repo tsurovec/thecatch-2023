@@ -8,7 +8,7 @@ Checking the certificate in browser, we can see that there are multiple SANs:
 - pirates.cns-jv.tcc
 - structure.cns-jv.tcc
 
-At the bottom of http://www.cns-jv.tcc/ page there's this base64 string `RkxBR3sgICAgLSAgICAtICAgIC0gICAgfQ==` -> `FLAG{    -    -    -    }`
+At the bottom of http://www.cns-jv.tcc/ page there's a base64 string `RkxBR3sgICAgLSAgICAtICAgIC0gICAgfQ==` -> `FLAG{    -    -    -    }`
 
 DNS server doesn't resolve any of the other names so I just added them to `/etc/hosts` to resolve to 10.99.0.64 and visited them from browser to gather flag pieces:
 https://documentation.cns-jv.tcc/style.css
