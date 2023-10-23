@@ -1,6 +1,4 @@
-## Navigation plan
-
-Points: 3
+## Navigation plan [3 pts]
 
 Inspection of the page tells us that there is a `/system/login` endpoint and a suspicious `/image.png?type=data&t=targets&id=1` endpoint.
 Playing with it for a while hints at SQLi vulnerability, so let's feed it to sqlmap: `sqlmap -u "http://navigation-plan.cns-jv.tcc/image.png?type=data&t=targets&id=1"`

@@ -1,6 +1,4 @@
-## U.S.A.
-
-Points: 5
+## U.S.A. [5 pts]
 
 We're given address http://universal-ship-api.cns-jv.tcc/. Quick nmap scan shows that only port 80 is open.
 Root serves just `{"msg":"Naval ship API version 1.0"}` JSON, we'll have to discover the rest.

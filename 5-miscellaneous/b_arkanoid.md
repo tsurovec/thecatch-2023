@@ -1,6 +1,4 @@
-## Arkanoid
-
-Points: 5
+## Arkanoid [5 pts]
 
 We're given a server to check for vulnerabilities. 
 

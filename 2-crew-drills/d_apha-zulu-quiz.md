@@ -1,6 +1,4 @@
-## Apha-Zulu quiz
- 
-Points: 3 
+## Apha-Zulu quiz [3 pts]
 
 This really is a quiz of 20 questions which need to answered correctly to get the flag.
 

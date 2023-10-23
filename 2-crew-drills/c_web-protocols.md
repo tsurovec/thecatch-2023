@@ -1,6 +1,4 @@
-## Web protocols
-
-Points: 2
+## Web protocols [2 pts]
 
 Scanning web-protocols.cns-jv.tcc tells us that ports 5009, 5011, 5020, 8011 and 8020 are open.
 

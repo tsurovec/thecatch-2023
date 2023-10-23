@@ -1,6 +1,4 @@
-## Keyword of the day
-
-Points: 4
+## Keyword of the day [4 pts]
 
 Nmap scan shows that many of the ports in range 60000-60495 are open. Visiting some of them shows that there's a code that renders a smiley face which changes about every second.
 

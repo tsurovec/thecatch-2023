@@ -1,6 +1,4 @@
-## Naval chef's recipe 
-
-Points: 3
+## Naval chef's recipe [3 pts]
 
 Nmap reports that ports 80 and 443 for chef-menu.galley.cns-jv.tcc host.
 The site uses a common setup when site on port 80 just redirects to a secure site on 443.

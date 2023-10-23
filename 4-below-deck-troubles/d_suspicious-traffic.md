@@ -1,6 +1,4 @@
-## Suspicious traffic
-
-Points: 5
+## Suspicious traffic [5 pts]
 
 We're given a single pcap and a goal of finding file `secret.db`
 

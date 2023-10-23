@@ -1,6 +1,4 @@
-## Regular cube
-
-Points: 2
+## Regular cube [2 pts]
 
 Regular regular crossword, just in 3D. 
 

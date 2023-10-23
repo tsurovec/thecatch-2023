@@ -1,6 +1,4 @@
-## Sonar logs 
-
-Points: 2
+## Sonar logs [2 pts]
 
 Looking at the sonar log, the messages consist of a) timestamp in various timezones and b) message.
 Some messages conspicuously seem to contain a hex encoded letter (<em>Object detected in depth ...</em>). Greping the file tells us that there are exactly 25 such lines which matches with the number of characters in a FLAG{...} string. So the goal seems to be order these lines in chronologic order and read out the flag.

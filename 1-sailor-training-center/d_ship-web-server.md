@@ -1,14 +1,12 @@
-##  Ship web server 
+##  Ship web server [1 pt]
 
-Points: 1
-
-Visiting http://www.cns-jv.tcc/ redirects us to a https using self-signed certificate.
+Visiting http://www.cns-jv.tcc/ redirects us to an https using self-signed certificate.
 Checking the certificate in browser, we can see that there are multiple SANs:
-	www.cns-jv.tcc
-	documentation.cns-jv.tcc
-	home.cns-jv.tcc
-	pirates.cns-jv.tcc
-	structure.cns-jv.tcc
+- www.cns-jv.tcc
+- documentation.cns-jv.tcc
+- home.cns-jv.tcc
+- pirates.cns-jv.tcc
+- structure.cns-jv.tcc
 
 At the bottom of http://www.cns-jv.tcc/ page there's this base64 string `RkxBR3sgICAgLSAgICAtICAgIC0gICAgfQ==` -> `FLAG{    -    -    -    }`
 

@@ -1,7 +1,4 @@
-## Signal flags 
-
-Points: 5
-
+## Signal flags [5 pts]
 
 There are 90 images with different ships showing messages in naval alphabet. Instead of developing an automated solution I used the good old hard work - just went through the images and stored the information in database.
 

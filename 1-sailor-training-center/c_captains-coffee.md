@@ -1,6 +1,4 @@
-## Captain's coffee 
-
-Points: 1
+## Captain's coffee [1 pt]
 
 Coffee maker API is at http://coffee-maker.cns-jv.tcc/
 

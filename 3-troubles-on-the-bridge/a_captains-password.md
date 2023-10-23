@@ -1,6 +1,4 @@
-## Captain’s password 
-
-Points: 2
+## Captain’s password [2 pts]
 
 We're given two files - a Keepass database and a memory dump.
 

@@ -1,6 +1,4 @@
-## Component replacement 
-
-Points: 3
+## Component replacement [3 pts]
 
 We're told that we're looking for `fuel efficiency enhancer` at http://key-parts-list.cns-jv.tcc/ and that the old IP range was 192.168.96.0/20.
 
